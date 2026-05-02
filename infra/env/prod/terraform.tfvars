@@ -2,7 +2,7 @@
 # Elas são essenciais para o deploy e precisam existir neste arquivo.
 
 environment = "prod"
-project_name = "my-app"
+project_name = "vojolabs-aws-lbd-cadastro-alunos"
 aws_region = "sa-east-1"
 
 ###########################################################################################
