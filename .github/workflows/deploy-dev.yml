@@ -15,5 +15,5 @@ jobs:
     with:
       environment: dev
       project_name: "vojolabs-project"
-      aws-assume-role-arn: "arn:aws:iam::<id_aws>:role/<role_name>"
+      aws-assume-role-arn: "arn:aws:iam::164599051832:role/<role_name>"
       aws-region: "sa-east-1"
