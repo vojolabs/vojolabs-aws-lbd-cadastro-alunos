@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Criar Pull Request para Main
         id: create-pr
