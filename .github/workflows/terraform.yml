@@ -28,13 +28,12 @@ jobs:
       run:
         shell: bash
     permissions:
-      issues: write
       id-token: write
       contents: read
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -62,10 +61,10 @@ jobs:
         id: terraform-destroy
         run: |
           cd infra && \
-          terraform workspace select -or-create ${{ inputs.environment }} && \ 
+          terraform workspace select -or-create ${{ inputs.environment }} && \
           terraform destroy \
             -var="environment=${{ inputs.environment }}" \
-            -var-file="envs/${{ inputs.environment }}/terraform.tfvars" \ 
+            -var-file="env/${{ inputs.environment }}/terraform.tfvars" \
             -auto-approve \
             -lock=false
 
@@ -77,7 +76,7 @@ jobs:
           terraform workspace select -or-create ${{ inputs.environment }} && \
           terraform plan \
             -var="environment=${{ inputs.environment }}" \
-            -var-file="envs/${{ inputs.environment }}/terraform.tfvars" \
+            -var-file="env/${{ inputs.environment }}/terraform.tfvars" \
             -out="${{ inputs.environment }}.plan" \
             -lock=false
 
